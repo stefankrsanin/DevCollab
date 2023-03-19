@@ -8,6 +8,6 @@ namespace DevCollab.Interfaces
         User? GetSingleUser(int id);
         Task<List<User>> AddUser(User oneUser);
         Task<List<User>?> UpdateUser(int id, User user);
-        Task<List<User>?> DeleteUser(int id);
+        void DeleteUser(int id);
     }
 }

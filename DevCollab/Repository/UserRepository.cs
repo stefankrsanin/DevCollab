@@ -46,9 +46,14 @@ namespace DevCollab.Repository
             throw new NotImplementedException();
         }
 
-        public Task<List<User>?> DeleteUser(int id)
+        public void DeleteUser(int id)
         {
-            var user = _context.Users.Remove(user);
+            var user = _context.Users.Find(id);
+            if (user != null)
+            { 
+                _context.Users.Remove(user);    
+                _context.SaveChanges();
+            }
 
             
 
