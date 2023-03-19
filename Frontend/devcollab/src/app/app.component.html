@@ -1,0 +1,8 @@
+<ng-container *ngIf="users">
+    <ul >
+        <li *ngfor="let user of users">{{user.firstName}} </li>
+    
+    </ul>
+    </ng-container>
+    
+    <button (click)="getUsers()">Get Users</button>
