@@ -22,9 +22,12 @@ namespace DevCollab.Repository
         }
 
 
-        public Task<List<User>> AddUser(User oneUser)
+        public User AddUser(User user)
         {
-            throw new NotImplementedException();
+             _context.Users.Add(user);
+           
+            _context.SaveChanges();
+            return user;
         }
 
       
@@ -41,10 +44,7 @@ namespace DevCollab.Repository
 
         }
 
-        public Task<List<User>?> UpdateUser(int id, User user)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public void DeleteUser(int id)
         {
@@ -57,6 +57,19 @@ namespace DevCollab.Repository
 
             
 
-        }        
+        }
+
+        public User? UpdateUser(int id, User user)
+        {
+            var userUpdated = _context.Users.Find(id);
+            if (userUpdated != null)
+            {
+                _context.Users.Update(user);
+                _context.SaveChanges();
+                return user;
+            }
+
+            return null;
+        }
     }
 }

@@ -6,8 +6,8 @@ namespace DevCollab.Interfaces
     {
         ICollection<User> GetAllUsers();
         User? GetSingleUser(int id);
-        Task<List<User>> AddUser(User oneUser);
-        Task<List<User>?> UpdateUser(int id, User user);
+        User AddUser(User user);
+        User? UpdateUser(int id, User user);
         void DeleteUser(int id);
     }
 }
